@@ -1,0 +1,22 @@
+%ul
+  %li
+    %label{'for' => 'article_title'} Title
+    %div= f.text_field :title
+  %li
+    %label{'for' => 'article_blurb'} Blurb
+    %div= f.text_area :blurb
+  %li
+    %label{'for' => 'article_body'} Body
+    %div= f.text_area :body
+  %li
+    %label{'for' => 'article_permalink'} Permalink
+    %div= f.text_field :permalink
+  %li
+    %label{'for' => 'article_published'} Published
+    %div= f.check_box :published
+  %li
+    %label{'for' => 'article_published_at'} Published at
+    %div= f.datetime_select :published_at
+  %li
+    %label{'for' => 'article_tag_list'} Tags (space seperated)
+    %div= f.text_field :tag_list

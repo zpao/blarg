@@ -1,0 +1,255 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #333;
+	/*padding: 0 0 3em 0;*/
+}
+
+strong {
+	font-weight: bold;
+}
+
+.inner {
+	width: 974px;
+	margin: auto;
+}
+
+a {
+	color: #c39;
+	text-decoration: none;
+}
+a:hover {
+	color: #39c;
+}
+
+/* @group toptop */
+#toptop {
+	background: #eee;
+	padding: .5em 0 .25em 0;
+	text-align: left;
+	border-bottom: 2px solid #ccc;
+	text-transform: uppercase;
+}
+#toptop a {
+	color: #999;
+	margin-right: 20px;
+}
+#toptop a#zpao {
+	color: #666;
+	font-size: 108%;
+	font-weight: bold;
+}
+#toptop a#zpao:hover {
+	color: #000;
+}
+#toptop a.current {
+	color: #39c;
+}
+#toptop a.current:hover {
+	color: #39c;
+}
+#toptop a:hover {
+	color: #c39;
+}
+
+/* @end */
+
+/* @group footfoot */
+#footfoot {
+	position: fixed;
+	background: #eee;
+	padding: .25em 0 .5em 0;
+	text-align: left;
+	border-top: 2px solid #ccc;
+	bottom: 0;
+	width: 100%;
+	color: #999;
+	font-family: Georgia, Times, serif;
+}
+
+
+/* @end */
+
+/* @group first post */
+div.post_blurb p, div.post_body p {
+	margin-bottom: 1em; /*1em*/
+}
+div.post_blurb p {
+	font-size: 153.9%;
+	font-style: italic;
+	color: #999;
+	padding-left: 1em;
+}
+div.post_body p {
+	font-family: Georgia, Times, serif;
+	font-size: 131%;
+}
+div.post_body div.photo {
+	background: #333;
+	color: #eee;
+	font-size: 93%;
+	padding: 1em;
+	margin-bottom: 17px;
+}
+div.post_body div.photo img {
+	margin-bottom: .5em;
+	background: #fff;
+	padding: .5em;
+}
+h2.post_date {
+	margin-bottom: -.5em;
+}
+a.post_title {
+	color: #333;
+}
+a.post_title:hover {
+	color: #39c;
+}
+
+/* @end */
+
+#doc4 {
+	position: relative;
+}
+
+#doc4 .yui-b {
+	margin-top: 100px;
+}
+
+h1 {
+	font-size: 400%;
+	font-weight: bold;
+}
+h2 {
+	font-size: 138.5%;
+	text-transform: uppercase;
+	color: #999;
+}
+
+h3 {
+	font-size: 116%;
+	text-transform: lowercase;
+	color: #666;
+	font-weight: bold;
+}
+
+/* @group twitter */
+#twitter {
+	position: absolute;
+	top:  1em;
+	right: 0;
+	width: 18.4615em;
+}
+#twitter_update_list li {
+	margin-bottom: 1em;
+}
+#twitter_update_list li span {
+	font-family: Georgia, Times, serif;
+	font-style: italic;
+	display: block;
+	color: #999;
+}
+#twitter_update_list li a {
+	text-align: right;
+	display: block;
+}
+
+
+/* @end */
+
+.spacer {
+	font-size: 197%;
+	text-align: center;
+	font-family: "Goudy Old Style", Georgia, Times, serif;
+	color: #999;
+}
+
+/* @group posts */
+
+#posts {
+	padding-top: 1em;
+	font-size: 131%;
+}
+#posts .post_date {
+	color: #999;
+	text-transform: uppercase;
+}
+#posts a {
+	margin-left: 1em;
+	font-weight: bold;
+}
+
+
+
+/* @end */
+
+/* @group ft */
+#ft {
+	margin: 3em 0 1em 0;
+	padding: 1em 0em 0 0em;
+	border-top: 1px dotted #ccc;
+	
+	color: #999;
+	/*background: #eee;*/
+	/*font-family: Georgia, Times, serif;*/
+}
+#ft a:link {
+	color: #888;
+	text-decoration: underline;
+}
+
+
+/* @end */
+
+/* @group sidebar */
+.sidebar_item_content {
+
+	background: #eee;
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	padding: .5em;
+	font-size: 93%;
+	color: #666;
+	margin-bottom: 2em;
+}
+
+
+/* @end */
+
+/* @group comments */
+
+#comments {
+	/*border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	background: #eee;
+	margin-top: 1em;*/
+	padding: 1em 0;
+}
+
+
+
+/* @end */
+
+/* @group forms */
+
+input, textarea {
+	width: 100%;
+}
+
+
+
+/* @end */
+
+
+/* @group tag cloud */
+p.tag_cloud {
+	margin: 1em 0;
+}
+.tag1 { font-size: 1.0em; }
+.tag2 { font-size: 1.2em; }
+.tag3 { font-size: 1.4em; }
+.tag4 { font-size: 1.6em; }
+.tag5 { font-size: 1.8em; }
+.tag6 { font-size: 2.0em; }
+
+
+/* @end */

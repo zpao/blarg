@@ -1,0 +1,16 @@
+# configuration for your blog
+
+# actual blog info
+blog:
+  title: zpao.com | blog
+  url: http://zpao.com
+
+# pertaining to admin info (as shown in RSS feed)
+admin:
+  name: Paul O&rsquo;Shannessy
+  email: paul.oshann@gmail.com
+
+# pertaining to logging in
+auth:
+  username: admin
+  password: password

@@ -1,0 +1,27 @@
+#post
+  %h2.post_date=  @article.pretty_published_at
+  %h1.post_title= @article.title
+  .post_blurb=    @article.blurb_html
+  .post_body=     @article.body_html
+
+  .spacer &real;
+  
+#comments
+  %strong Do you have something to say about this?
+  I don&rsquo;t have a comment system, so <a href="#">contact me</a>, and we&rsquo;ll talk about it.
+  
+-content_for :sidebar do
+  %h3.sidebar_item_title Metadata
+  .sidebar_item_content
+    %p
+      %strong Tags:
+      = @article.tags.collect{|tag| link_to tag.name, tag}.to_sentence
+    %p
+      %strong Published:
+      =@article.pretty_published_at
+
+  - if authorized?
+    %h3.sidebar_item_title Actions
+    .sidebar_item_content
+      %ul
+        %li= link_to "Edit", edit_article_path(@article)

@@ -1,0 +1,35 @@
+<% xml = Builder::XmlMarkup.new %>
+
+<%= xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+  xml.channel do
+    
+    xml.title('zpao.com | blog')
+    xml.link('http://zpao.com')
+    xml.language('en')
+    xml.webMaster('paul@zpao.com (Paul O&rsquo;Shannessy)')
+    xml.copyright('Copyright 2004-' + Time.now.year.to_s)
+    xml.ttl('60')
+    xml.pubDate(CGI.rfc1123_date(@articles.first.updated_at)) if @articles.any?
+    xml.description('AWESOME')
+
+    for article in @articles do
+      xml.item do
+        xml.title(article.title)
+        xml.link(article_url(article))
+        xml.pubDate(CGI.rfc1123_date(article.published_at))
+        xml.guid(article_url(article))
+        xml.authorxml('paul@zpao.com (Paul O&rsquo;Shannessy)')
+        xml.description(article.body_html)
+        # if post.tag_names.length > 0
+        #   for tag in post.tag_names.sort!
+        #     xml.category tag, "domain" => Site.full_url + '/' + get_pref('ARCHIVE_TOKEN') + '/tags/' + tag
+        #   end
+        # end
+      end
+    end
+    
+  end
+end
+%>

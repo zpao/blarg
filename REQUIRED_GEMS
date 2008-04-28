@@ -1,0 +1,7 @@
+These are the gems used during the creation of this app.
+None are stored locally as of now.  Feel free to freeze as needed.
+
+GEM NAME    VERSION
+rails       (2.0.2)
+RedCloth    (3.0.4)
+haml        (1.9.0)

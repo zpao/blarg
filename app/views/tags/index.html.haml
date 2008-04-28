@@ -1,0 +1,16 @@
+%h1 Tags
+
+%p Browse articles by tag using the tag cloud.
+
+%p.tag_cloud
+  -tag_cloud @tags, %w(tag1 tag2 tag3 tag4 tag5 tag6) do |tag, css_class|
+    = link_to tag.name, tag, :class => css_class
+
+-content_for :sidebar do
+  %h3.sidebar_item_title Tags
+  .sidebar_item_content
+    %p
+      I know tag clouds are so 2006, but I wanted it and it was pretty easy.
+      You can also
+      = link_to "browse by date", articles_path
+      if you prefer.

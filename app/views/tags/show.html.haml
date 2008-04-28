@@ -1,0 +1,13 @@
+%h1= "&ldquo;#{@tag.name}&rdquo; Articles"
+
+%p
+  Here are the
+  %em= @articles.size
+  article(s) tagged with
+  = "&ldquo;#{@tag.name}&rdquo;."
+
+%ul#posts
+  - for article in @articles
+    %li
+      %span.post_date= article.pretty_published_at
+      = link_to article.title, article, :class=> 'post_title'

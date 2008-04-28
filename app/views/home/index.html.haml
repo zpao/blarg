@@ -1,0 +1,23 @@
+#post
+  %h2.post_date=  @article.pretty_published_at
+  %h1.post_title= link_to @article.title, @article, :class=> 'post_title'
+  .post_blurb=    @article.blurb_html
+  .post_body=     @article.body_html
+
+.spacer &real;
+
+%ul#posts
+  -for article in @articles
+    %li
+      %span.post_date= article.pretty_published_at
+      = link_to article.title, article, :class=> 'post_title'
+
+-content_for :sidebar do
+  %h3.sidebar_item_title A Few Words
+  .sidebar_item_content
+    %p
+      This is the home of Paul O&rsquo;Shannessy &mdash; a senior at <a href="http://cmu.edu">Carnegie Mellon University</a> majoring in <a href="http://is.hss.cmu.edu">Information Systems</a>.
+      He&rsquo;s pretty <em>awesome</em>.
+    %p
+      He interned with <a href="http://autos.yahoo.com">Yahoo! Autos</a> last year, and is interning with Mozilla to work on <a href="http://mozilla.com/firefox">Firefox</a> this summer.
+      

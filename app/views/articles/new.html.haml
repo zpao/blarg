@@ -1,0 +1,16 @@
+%h1 New Article
+
+= error_messages_for :article
+
+- form_for(@article) do |f|
+  = render :partial => 'form', :locals => {:f => f}
+
+  .submit
+    =f.submit "Create"
+
+
+-content_for :sidebar do
+  %h3.sidebar_item_title Actions
+  .sidebar_item_content
+    %ul
+      %li= link_to 'All Articles', articles_path
