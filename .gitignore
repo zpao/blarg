@@ -1,2 +1,3 @@
 .DS_Store
-*.log
+log/*.log
+db/*.sqlite3
