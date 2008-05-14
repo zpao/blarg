@@ -50,6 +50,10 @@ a:hover {
 #toptop a:hover {
 	color: #c39;
 }
+#toptop span {
+	margin-right: 20px;
+	color: #666;
+}
 
 /* @end */
 
@@ -250,6 +254,16 @@ p.tag_cloud {
 .tag4 { font-size: 1.6em; }
 .tag5 { font-size: 1.8em; }
 .tag6 { font-size: 2.0em; }
+
+
+/* @end */
+
+/* @group del.icio.us */
+
+li.delicious-post {
+	list-style-type: disc;
+	list-style-position: inside;
+}
 
 
 /* @end */
