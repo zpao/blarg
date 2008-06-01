@@ -200,6 +200,9 @@ h3 {
 	color: #888;
 	text-decoration: underline;
 }
+#ft p.right {
+	float: right;
+}
 
 
 /* @end */
