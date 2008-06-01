@@ -8,7 +8,9 @@
   
 #comments
   %strong Do you have something to say about this?
-  I don&rsquo;t have a comment system, so <a href="#">contact me</a>, and we&rsquo;ll talk about it.
+  I don&rsquo;t have a comment system, so
+  =mail_to "paul@zpao.com", "email me", :encode => "javascript"
+  and we&rsquo;ll talk about it.
   
 -content_for :sidebar do
   %h3.sidebar_item_title Metadata
