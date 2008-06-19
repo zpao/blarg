@@ -73,8 +73,8 @@ a:hover {
 
 /* @end */
 
-/* @group first post */
-div.post_blurb p, div.post_body p {
+/* @group first post, page */
+div.post_blurb p, div.post_body p, div.page_body p {
 	margin-bottom: 1em; /*1em*/
 }
 div.post_blurb p {
@@ -83,18 +83,18 @@ div.post_blurb p {
 	color: #999;
 	padding-left: 1em;
 }
-div.post_body p {
+div.post_body p, div.page_body p {
 	font-family: Georgia, Times, serif;
 	font-size: 131%;
 }
-div.post_body div.photo {
+div.post_body div.photo, div.page_body div.photo {
 	background: #333;
 	color: #eee;
 	font-size: 93%;
 	padding: 1em;
 	margin-bottom: 17px;
 }
-div.post_body div.photo img {
+div.post_body div.photo img, div.page_body div.photo img {
 	margin-bottom: .5em;
 	background: #fff;
 	padding: .5em;
@@ -107,6 +107,11 @@ a.post_title {
 }
 a.post_title:hover {
 	color: #39c;
+}
+div.post_body blockquote p {
+	margin-left: 3em;
+	padding: .5em;
+	background: #eee;
 }
 
 /* @end */
@@ -189,12 +194,13 @@ h3 {
 /* @group ft */
 #ft {
 	margin: 3em 0 1em 0;
-	padding: 1em 0em 0 0em;
+	padding: .5em 0em 0 0em;
 	border-top: 1px dotted #ccc;
 	
 	color: #999;
 	/*background: #eee;*/
-	/*font-family: Georgia, Times, serif;*/
+	font-family: Georgia, Times, serif;
+	text-transform: uppercase;
 }
 #ft a:link {
 	color: #888;
