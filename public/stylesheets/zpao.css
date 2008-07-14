@@ -276,3 +276,42 @@ li.delicious-post {
 
 
 /* @end */
+
+/* @group disqus */
+#comments {
+	background: #eee;
+	border-bottom: 2px solid #ccc;
+	border-top: 2px solid #ccc;
+	padding: 1em;
+}
+#dsq-post-add-iframe {
+	width: 100%;
+}
+#dsq-content #dsq-comments .dsq-comment-header {
+	background: #ddd !important;
+	border-bottom: 1px solid #ccc;
+}
+#dsq-content #dsq-comments .dsq-comment.special .dsq-comment-header {
+}
+#dsq-content #dsq-comments .dsq-comment-header cite {
+	padding: 0 0 0 .25em;
+}
+#dsq-content #dsq-comments .dsq-comment-body {
+	font-family: Georgia, Times, serif;
+	background: #fff;
+	padding: .5em !important;
+}
+#dsq-content #dsq-comments .dsq-comment-footer {
+	font-size: 85% !important;
+	margin: .25em 0 !important;
+	text-align: right;
+}
+/*hide the disqus logo*/
+#dsq-auth {
+	display: none;
+}
+#dsq-pagination {
+	display: none;
+}
+
+/* @end */

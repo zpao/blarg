@@ -6,11 +6,16 @@
 
   .spacer &real;
   
+%h2 Comments
 #comments
-  %strong Do you have something to say about this?
-  I don&rsquo;t have a comment system, so
-  =mail_to "paul@zpao.com", "email me", :encode => "javascript"
-  and we&rsquo;ll talk about it.
+:javascript
+  var disqus_url = '#{@permalink}';
+  var disqus_title = '#{@article.title}';
+  var disqus_container_id = 'comments';
+  var disqus_developer = 1;
+%script{:type => "text/javascript", :src => "http://disqus.com/forums/zpao/embed.js"}
+%noscript
+  =link_to "View the forum thread.", "http://zpao.disqus.com/?url=" + @permalink
   
 -content_for :sidebar do
   %h3.sidebar_item_title Metadata
@@ -21,9 +26,25 @@
     %p
       %strong Published:
       =@article.pretty_published_at
+    %p
+      %strong Comments:
+      <a href="#disqus_thread"></a>
+      :javascript
+        (function() {
+          var links = document.getElementsByTagName('a');
+          var query = '?';
+          for(var i = 0; i < links.length; i++) {
+            if(links[i].href.indexOf('#disqus_thread') >= 0) {
+              query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+            }
+          }
+          document.write('<script type="text/javascript" src="http://disqus.com/forums/zpao/get_num_replies.js' + query + '"></' + 'script>');
+        })();
 
   - if authorized?
     %h3.sidebar_item_title Actions
     .sidebar_item_content
       %ul
         %li= link_to "Edit", edit_article_path(@article)
+
+

@@ -32,7 +32,7 @@
       #ft
         %p.right
           <a href="http://feeds.feedburner.com/zpao" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="Subscribe to RSS"/></a>
-        &copy; Copyright 2004-2008 Paul O&rsquo;Shannessy | Powered by <a href="http://blarg.zpao.com">Blarg</a> | <a href="http://www.dreamhost.com/r.cgi?98611">Hosted on Dreamhost</a>
+        &copy; Copyright 2004-2008 Paul O&rsquo;Shannessy | Powered by <a href="http://blarg.zpao.com">Blarg</a> + <a href="http://disqus.com">Disqus</a> | <a href="http://www.dreamhost.com/r.cgi?98611">Hosted on Dreamhost</a>
 
       #twitter
         %ul#twitter_update_list
@@ -42,11 +42,11 @@
     %script{:type => "text/javascript"}
       re_("59qa2-m8u784ek86");
 
-    %script{:type => "text/javascript"}
+    :javascript
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 
-    %script{:type => "text/javascript"}
+    :javascript
       var pageTracker = _gat._getTracker("UA-66375-1");
       pageTracker._initData();
       pageTracker._trackPageview();
