@@ -3,8 +3,9 @@
   %head
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     %title zpao.com | blog
-    = stylesheet_link_tag 'reset-fonts-grids', 'zpao'
+    = stylesheet_link_tag 'reset-fonts-grids', 'zpao', 'code'
     = auto_discovery_link_tag :rss, "http://feeds.feedburner.com/zpao", :title => 'zpao.com | blog'
+    = javascript_include_tag 'CodeHighlighter/code_highlighter.js', 'CodeHighlighter/ruby.js'
   
   %body
     #toptop
