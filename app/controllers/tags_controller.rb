@@ -5,7 +5,7 @@ class TagsController < ApplicationController
   # GET /tags.xml
   def index
     @tags = Article.tag_counts
-
+    @page_title = "Tags"
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tags }
@@ -17,7 +17,7 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @articles = Article.find_tagged_with(@tag.name)
-
+    @page_title = "Tag: “#{@tag.name}”"
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tag }

@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
   def index
+    @page_title = "Articles"
     respond_to do |format|
       format.html do # index.html.erb
         @articles = Article.find_published
@@ -18,6 +19,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
+    @page_title = @article.title
     @permalink = url_for(@article)
     respond_to do |format|
       format.html # show.html.erb
