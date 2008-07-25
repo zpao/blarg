@@ -20,6 +20,10 @@ a {
 a:hover {
 	color: #39c;
 }
+abbr, acronym {
+	border-bottom: 1px dashed #333;
+	cursor: help;
+}
 
 /* @group toptop */
 #toptop {
@@ -112,6 +116,15 @@ div.post_body blockquote p {
 	margin-left: 3em;
 	padding: .5em;
 	background: #eee;
+}
+
+div.post_body div.footnotes {
+	border-top: 1px solid #ccc;
+	padding-top: .5em;
+	font-size: 85%;
+}
+div.post_body div.footnotes p {
+	margin: 0;
 }
 
 /* @end */
