@@ -2,43 +2,47 @@
 %html
   %head
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
-    %title= "zpao.com | blog" + (@page_title ? h(" | #{@page_title}") : "")
+    %title= "zpao.com | blog" + (@page_title ? " &raquo; " + h("#{@page_title}") : "")
     = stylesheet_link_tag 'reset-fonts-grids', 'zpao', 'code'
     = auto_discovery_link_tag :rss, "http://feeds.feedburner.com/zpao", :title => 'zpao.com | blog'
     = javascript_include_tag 'CodeHighlighter/code_highlighter.js', 'CodeHighlighter/ruby.js'
   
   %body
-    #toptop
-      .inner
-        = link_to '&real; ZPAO.com', '/', :id => 'zpao'
-        = link_to 'Articles', articles_path
-        = link_to 'Tags', tags_path
-        %span
-          |
-        = link_to 'Flickr', 'http://flickr.com/photos/zpao'
-        = link_to 'Last.fm', 'http://last.fm/user/zpao'
-        = link_to 'Twitter', 'http://twitter.com/zpao'
-        = link_to 'Del.icio.us', 'http://del.icio.us/zpao'
-        = link_to 'Facebook', 'http://www.facebook.com/profile.php?id=4800504'
-        = link_to 'LinkedIn', 'http://www.linkedin.com/in/pauloshannessy'
-
-    #doc4.yui-t5
+    #wrapper
+      #hd
+        .content
+          %h1= link_to '<span>ZPAO &mdash; Paul O&rsquo;Shannessy</span>', '/'
+          %ul
+            %li#nav-articles= link_to '<span>Articles</span>', articles_path
+            %li#nav-tags=     link_to '<span>Tags</span>', tags_path
+            %li#nav-about=    link_to '<span>About</span>', '#'
+            %li#nav-contact=  link_to '<span>Contact</span>', '#'
+      
       #bd
-        #yui-main
-          .yui-b
+        .content
+          #main.content-right
             = yield
-        .yui-b
-          = yield :sidebar
+          #sidebar.content-left
 
-      #ft
-        %p.right
-          <a href="http://feeds.feedburner.com/zpao" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="Subscribe to RSS"/></a>
-        &copy; Copyright 2004-2008 Paul O&rsquo;Shannessy | Powered by <a href="http://blarg.zpao.com">Blarg</a> + <a href="http://disqus.com">Disqus</a> | <a href="http://www.dreamhost.com/r.cgi?98611">Hosted on Dreamhost</a>
 
-      #twitter
-        %ul#twitter_update_list
-      %script{:type => "text/javascript", :src => "http://twitter.com/javascripts/blogger.js"}
-      %script{:type => "text/javascript", :src => "http://twitter.com/statuses/user_timeline/zpao.json?callback=twitterCallback2&count=1"}
+
+      #ft.fl
+        %div{ :class => 'content fl' }
+          .content-right
+            %p
+              &copy; Copyright 2004-2008 Paul O&rsquo;Shannessy
+              %span{ :class => 'orn' } &#x2605;
+              Powered by <a href="http://blarg.zpao.com">Blarg</a> <span class="amp">&amp;</span> hosted on <a href="http://www.dreamhost.com/r.cgi?98611">Dreamhost</a>
+            %p
+              <a href="http://zpao.com">Blog</a> | 
+              <a href="http://playground.zpao.com">Playground</a> | 
+              <a href="http://twitter.com/zpao">Twitter</a> | 
+              <a href="http://flickr.com/photos/zpao">Flickr</a> | 
+              <a href="http://last.fm/user/zpao">Last.fm</a> | 
+              <a href="http://del.icio.us/zpao">Del.icio.us</a> |
+              <a href="http://www.facebook.com/profile.php?id=4800504">Facebook</a> | 
+              <a href="http://www.linkedin.com/in/pauloshannessy">LinkedIn</a>
+
     %script{:type => "text/javascript", :src => "http://include.reinvigorate.net/re_.js"}
     %script{:type => "text/javascript"}
       re_("59qa2-m8u784ek86");

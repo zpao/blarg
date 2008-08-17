@@ -13,4 +13,8 @@ module ApplicationHelper
       yield tag, classes[index]
     end
   end
+  
+  def pretty_date(date)
+    date.strftime("%B %d, %G")
+  end
 end

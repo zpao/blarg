@@ -1,4 +1,11 @@
-%li{:id => "comment-#{comment.id}"}
-  .name=h comment.name
-  .website=h comment.url
+%li{:id => "comment-#{comment.id}", :class => "comment"}
+  .info
+    - if comment.url
+      .name= link_to h(comment.name), comment.url
+    - else
+      .name=h comment.name
+    .date= pretty_date(comment.created_at)
+    - if comment.is_author
+      .authormark
+        %span Author
   .body= comment.body_html

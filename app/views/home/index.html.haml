@@ -1,34 +1,8 @@
-#post
-  %h2.post_date=  @article.pretty_published_at
-  %h1.post_title= link_to @article.title, @article, :class=> 'post_title'
-  .post_blurb=    @article.blurb_html
-  .post_body=     @article.body_html
+%h1= link_to @article.title, @article
+.blurb= @article.blurb_html
 
-.spacer &real;
-
-%ul#posts
-  -for article in @articles
-    %li
-      %span.post_date= article.pretty_published_at
-      = link_to article.title, article, :class=> 'post_title'
-
--content_for :sidebar do
-  %h3.sidebar_item_title A Few Words
-  .sidebar_item_content
-    %p
-      This is the home of Paul O&rsquo;Shannessy &mdash; a graduate of the <a href="http://is.hss.cmu.edu">Information Systems</a> program <a href="http://cmu.edu">Carnegie Mellon University</a>.  He is also finishing up his <a href="http://ism.heinz.cmu.edu/">Master of Information Systems Management</a> in Fall 2008.
-    %br
-    %p
-      He interned with <a href="http://autos.yahoo.com">Yahoo! Autos</a> last year, and is interning with Mozilla to work on <a href="http://mozilla.com/firefox">Firefox</a> this summer.
-    %br
-    %p
-      He&rsquo;s worked on a few other projects, including <a href="http://flolcatr.com">flolcatr</a> and <a href="http://playground.zpao.com/yweather">yWeather</a>.
-      Not to mention <a href="http://tcpulse.com">The Carnegie Pulse</a>.
-    %br
-    %p
-      He&rsquo;s pretty <em>awesome</em>.
-
-  %h3.sidebar_item_title A Few Links
-  .sidebar_item_content
-    <script type="text/javascript" src="http://del.icio.us/feeds/js/zpao?count=5"></script>
-    <noscript><a href="http://del.icio.us/zpao">my del.icio.us</a></noscript>
+.meta
+  %span.date= "Posted: " + pretty_date(@article.published_at)
+  %span.tags= "Tagged: " + @article.tags.collect{|tag| link_to tag.name, tag}.to_sentence
+  %span.comments= link_to "#{@article.comments.size} Comments", article_path(@article) + "#comments"
+=@article.body_html

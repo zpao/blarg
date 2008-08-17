@@ -1,57 +1,40 @@
-#post
-  %h2.post_date=  @article.pretty_published_at
-  %h1.post_title= @article.title
-  .post_blurb=    @article.blurb_html
-  .post_body=     @article.body_html
+%h1= @article.title
+.blurb= @article.blurb_html
 
-  .spacer &real;
-  
-%h2 Comments
+.meta
+  %span.date= "Posted: " + pretty_date(@article.published_at)
+  %span.tags= "Tagged: " + @article.tags.collect{|tag| link_to tag.name, tag}.to_sentence
+  %span.comments= link_to "#{@article.comments.size} Comments", article_path(@article) + "#comments"
+=@article.body_html
+
 #comments
-  %ol
-    =render :partial => 'comment', :collection => @article.comments
-  #comment_form
+  %h2 Comments
+  - if @article.comments.size > 0
+    %ol
+      =render :partial => 'comment', :collection => @article.comments
+  - else
+    Nobody has commented on this article yet!
+  #comment-form
     = error_messages_for :comment
     - form_for(@comment, :url => comment_article_path(@article), :method => :post) do |f|
-      %div
+      .required
         %label{:for => 'comment_name'} Name
         =f.text_field :name
-      %div
+      .required
         %label{:for => 'comment_email'} Email
         =f.text_field :email
-      %div
+      .optional
         %label{:for => 'comment_url'} Website/URL
         =f.text_field :url
-      %div
-        %label{:for => 'comment_body'} Comment (format with <a href="http://hobix.com/textile/quick.html">Textile</a>)
+      .required
+        %label{:for => 'comment_body'}
+          Comment<br>
+          %span= link_to("Textile", "http://hobix.com/textile/quick.html", :popup => true) + " allowed."
         =f.text_area :body
-      %div
+      .required
         %label{:for => 'comment_is_human'}= BLARG_CONFIG['comments']['is_human_question']
         =f.text_field :is_human
       %div
         =f.submit "Create"
-
-
-
-  
--content_for :sidebar do
-  %h3.sidebar_item_title Metadata
-  .sidebar_item_content
-    %p
-      %strong Tags:
-      = @article.tags.collect{|tag| link_to tag.name, tag}.to_sentence
-    %p
-      %strong Published:
-      =@article.pretty_published_at
-    %p
-      %strong Comments:
-      =@article.comments.size.to_s + " Comments"
-      
-
-  - if authorized?
-    %h3.sidebar_item_title Actions
-    .sidebar_item_content
-      %ul
-        %li= link_to "Edit", edit_article_path(@article)
 
 
