@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
   
+  has_many :comments
+  
   validates_presence_of :permalink
   
   before_save :generate_html

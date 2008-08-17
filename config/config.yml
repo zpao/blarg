@@ -7,10 +7,15 @@ blog:
 
 # pertaining to admin info (as shown in RSS feed)
 admin:
-  name: Paul O&rsquo;Shannessy
+  name: Paul O’Shannessy
   email: paul.oshann@gmail.com
 
 # pertaining to logging in
 auth:
   username: admin
   password: password
+
+# comments
+comments:
+  is_human_question: What is my name?
+  is_human_answer: Paul

@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_filter :auth_required, :except => [:index, :show]
+  before_filter :auth_required, :except => [:index, :show, :comment]
+  before_filter :load_article, :only => [:show, :edit, :update, :destroy, :comment]
   
   # GET /articles
   # GET /articles.xml
@@ -18,9 +19,9 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.xml
   def show
-    @article = Article.find(params[:id])
     @page_title = @article.title
     @permalink = url_for(@article)
+    @comment = @article.comments.new
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @article }
@@ -40,7 +41,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    @article = Article.find(params[:id])
   end
 
   # POST /articles
@@ -63,8 +63,6 @@ class ArticlesController < ApplicationController
   # PUT /articles/1
   # PUT /articles/1.xml
   def update
-    @article = Article.find(params[:id])
-
     respond_to do |format|
       if @article.update_attributes(params[:article])
         flash[:notice] = 'Article was successfully updated.'
@@ -80,12 +78,36 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.xml
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
 
     respond_to do |format|
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }
     end
+  end
+
+  # POST /articles/id/comment
+  # POST /articles/id/comment.xml
+  def comment
+    # TODO should not be setting this in controller
+    @page_title = @article.title
+    @comment = @article.comments.new(params[:comment])
+    @comment.is_author = authorized?
+    
+    respond_to do |format|
+      if @comment.save
+        flash[:notice] = 'Comment was successfully created.'
+        format.html { redirect_to(@article) }
+        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+      else
+        format.html { render :action => "show" }
+        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+protected
+  def load_article
+    @article = Article.find(params[:id])
   end
 end

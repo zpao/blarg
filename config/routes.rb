@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :tags
 
-  map.resources :articles
+  map.resources :articles, :member => { :comment => :post }
 
   # The priority is based upon order of creation: first created -> highest priority.
 
