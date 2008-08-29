@@ -6,6 +6,10 @@
     = stylesheet_link_tag 'reset-fonts-grids', 'zpao', 'code'
     = auto_discovery_link_tag :rss, "http://feeds.feedburner.com/zpao", :title => 'zpao.com | blog'
     = javascript_include_tag 'CodeHighlighter/code_highlighter.js', 'CodeHighlighter/ruby.js'
+    
+    %link{'rel' => "openid.server", 'href' => "http://www.myopenid.com/server"}
+    %link{'rel' => "openid.delegate", 'href' => "http://zpao.myopenid.com/"}
+    %link{'http-equiv' => "X-XRDS-Location", 'content' => "http://www.myopenid.com/xrds?username=zpao.myopenid.com"}
   
   %body
     #wrapper
@@ -15,8 +19,8 @@
           %ul
             %li#nav-articles= link_to '<span>Articles</span>', articles_path
             %li#nav-tags=     link_to '<span>Tags</span>', tags_path
-            %li#nav-about=    link_to '<span>About</span>', '#'
-            %li#nav-contact=  link_to '<span>Contact</span>', '#'
+            %li#nav-about=    link_to '<span>About</span>', about_path
+            %li#nav-contact=  link_to '<span>Contact</span>', contact_path
       
       #bd
         .content
