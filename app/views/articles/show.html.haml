@@ -4,7 +4,7 @@
 .meta
   %span.date= "Posted: " + pretty_date(@article.published_at)
   %span.tags= "Tagged: " + @article.tags.collect{|tag| link_to tag.name, tag}.to_sentence
-  %span.comments= link_to "#{@article.comments.size} Comments", article_path(@article) + "#comments"
+  %span.comments= link_to pluralize(@article.comments.size, "Comment"), article_path(@article) + "#comments"
 =@article.body_html
 
 #comments
