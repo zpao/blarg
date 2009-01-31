@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :auth_required, :except => [:index, :show, :comment]
+  before_filter :auth_required, :except => [:index, :show, :comment, :comments]
   before_filter :load_article, :only => [:show, :edit, :update, :destroy, :comment]
   
   # GET /articles
@@ -102,6 +102,19 @@ class ArticlesController < ApplicationController
       else
         format.html { render :action => "show" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+  # GET /articles/comments
+  # GET /articles/comments.rss
+  def comments
+    respond_to do |format|
+      # format.html do # index.html.erb
+      #   @articles = Article.find_published
+      # end
+      format.rss  do # index.rss.erb
+        @comments = Comment.find(:all, :order => 'created_at')
       end
     end
   end
