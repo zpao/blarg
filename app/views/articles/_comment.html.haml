@@ -1,6 +1,6 @@
 %li{:id => "comment-#{comment.id}", :class => "comment"}
   .info
-    - if comment.url
+    - if !comment.url.empty?
       .name= link_to h(comment.name), comment.url
     - else
       .name=h comment.name
