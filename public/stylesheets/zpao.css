@@ -188,6 +188,9 @@ span.amp {
 #ft ul, #ft p {
 	font-size: 85%;
 }
+#ft p.all-links a {
+  margin: auto .5em;
+}
 ul#sites a span {
 	display: none;
 	color: #ccc;
