@@ -1,3 +1,6 @@
+- content_for :extra_head do
+  = auto_discovery_link_tag :rss, "#{@tag.name}.rss", :title => "zpao.com | blog | tag: #{@tag.name}"
+
 %h1= "Tag: &ldquo;#{@tag.name}&rdquo;"
 .blurb
   %p
