@@ -21,6 +21,9 @@ class TagsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @tag }
+      format.rss do # show.rss.builder
+        @articles = @articles.reverse.slice(0, 10)
+      end
     end
   end
 
