@@ -11,6 +11,8 @@ a:hover {
 p {
 	margin-bottom: 1em;
 }
+strong { font-weight: bold; }
+em { font-style: italic; }
 .fl { float: left; }
 .fr { float: right; }
 .orn { padding: 0 1em; }
@@ -104,6 +106,14 @@ span.amp {
 }
 #main p {
 	font-size: 123.1%;
+}
+#main .article-content ul {
+  margin-bottom: 1em;
+  font-size: 123.1%;
+  margin-left: 1em;
+}
+#main .article-content li {
+  list-style: circle;
 }
 #main div.blurb p {
 	font-size: 167%;
@@ -242,6 +252,12 @@ ul#sites a:hover span {
 	width:  70%;
 	font-size: 81.25%; /* bring it back down to 13px */
 }
+.comment .body ul, .comment .body ol {
+	margin: 0 0 1em 1em;
+}
+.comment .body ul li {
+	list-style-type: disc;
+}
 
 /* @group comment-form */
 #comment-form {
@@ -315,5 +331,27 @@ p.tag_cloud {
 }
 #articles a {
 	font-weight: bold;
+}
+/* @end */
+
+/* @group fancylists */
+ul.fancylist {
+	margin-bottom: 1em;
+}
+ul.fancylist li {
+	font-size: 123.1%;
+	margin-left: 2em;
+}
+ul.fancylist li span.subtext {
+	font-size: 75%;
+	margin-left: .5em;
+	color: #666;
+	font-style: italic;
+	font-family: Georgia, serif;
+}
+ul.fancylist li span.fancy {
+	margin: 0 1em 0 -2em;
+	color: #999;
+	font-size: 90%;
 }
 /* @end */
