@@ -15,7 +15,7 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.xml
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_name(params[:id])
     @articles = Article.find_tagged_with(@tag.name)
     @page_title = "Tag: “#{@tag.name}”"
     respond_to do |format|
