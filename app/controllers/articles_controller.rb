@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_filter :auth_required, :except => [:index, :show, :comment, :comments]
   before_filter :load_article, :only => [:show, :edit, :update, :destroy, :comment]
+  before_filter  :expire_cache, :only => [:create, :edit, :destroy, :comment]
+  caches_page :index, :show
   
   # GET /articles
   # GET /articles.xml
