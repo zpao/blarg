@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  caches_page :index
 
   def index
     @articles = Article.find_published(10)
