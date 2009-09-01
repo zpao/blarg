@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   before_filter :auth_required, :except => [:index, :show]
-  
+  caches_page :index, :show
+
   # GET /tags
   # GET /tags.xml
   def index

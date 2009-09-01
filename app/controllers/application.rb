@@ -36,12 +36,11 @@ class ApplicationController < ActionController::Base
   # Since I'm not caching anything ATM, caching everything and expiring it all more often is OK
   # Snippet from http://railsenvy.com/2007/2/28/rails-caching-tutorial
   def expire_cache
-    RAILS_DEFAULT_LOGGER.info("CacheING")
     cache_dir = ActionController::Base.page_cache_directory
-    unless cache_dir == RAILS_ROOT + "/public"
-      FileUtils.rm_r(Dir.glob(cache_dir + "/*")) rescue Errno::ENOENT
-      RAILS_DEFAULT_LOGGER.info("Cache directory '#{cache_dir}' fully sweeped.")
-    end
+    dirs = ["articles", "tags"]
+    files = ["index.html", "about.html", "contact.html", "articles.html", "tags.html", "articles.rss", "comments.rss"]
+    (files + dirs).each {|f| FileUtils.rm_r(Dir.glob(cache_dir + "/#{f}")) rescue Errno::ENOENT }
+    RAILS_DEFAULT_LOGGER.info("Cache directory '#{cache_dir}' fully sweeped.")
   end
 
 end
