@@ -327,10 +327,14 @@ p.tag_cloud {
 #articles {
 	padding-top: 1em;
 	font-size: 131%;
+	width: 100%;
+}
+#articles td {
+  padding-bottom: .25em;
+  vertical-align: top;
 }
 #articles .date {
-	width: 25%;
-	display: inline-block;
+	width: 35%;
 }
 #articles a {
 	font-weight: bold;

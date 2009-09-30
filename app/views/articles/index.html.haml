@@ -3,8 +3,8 @@
 .blurb
   %p I&rsquo;ve got content in reverse chronological order, for reals yo.
 
-%ul#articles
+%table#articles
   - for article in @articles
-    %li
-      %span.date= pretty_date(article.published_at)
-      = link_to article.title, article
+    %tr
+      %td.date= pretty_date(article.published_at)
+      %td= link_to article.title, article
